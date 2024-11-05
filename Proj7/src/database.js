@@ -28,4 +28,35 @@ export function getPopulationList() {
     return supabase.from("population").select("*");
 }
 
+export async function editPop(id, updatedData) {
+    const { data, error } = await supabase
+        .from('population') // Replace with your table name
+        .update(updatedData) // updatedData should contain the fields to be updated
+        .eq('id', id); // Identify the record by ID
+
+    if (error) {
+        console.error("Error updating character:", error);
+        // Handle error (e.g., show a notification)
+    } else {
+        alert("Character updated successfully:", data);
+        // Optionally, refresh the character list or navigate away
+    }
+};
+
+
+export async function deletePop(id){
+    const { data, error } = await supabase
+        .from('population') // Replace with your table name
+        .delete()
+        .eq('id', id); // Identify the record by ID
+
+    if (error) {
+        console.error("Error deleting character:", error);
+        // Handle error (e.g., show a notification)
+    } else {
+        alert("Character deleted successfully:", data);
+        // Optionally, refresh the character list or navigate away
+    }
+};
+
 export default supabase;

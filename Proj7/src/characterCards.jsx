@@ -45,8 +45,9 @@ function CharacterCards() {
                         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     >
+                        <img src={character.base_character_image} alt={character.name} style={{ width: "100%" }} />
                         <h3>{character.name}</h3>
-                        <p>Powers: {character.powers}</p>
+                        <p>Power: {character.power}</p>
                     </div>
                 ))}
             </div>
